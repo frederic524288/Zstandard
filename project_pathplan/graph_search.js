@@ -79,11 +79,12 @@ function iterateGraphSearch() {
     G[temp.i][temp.j].visited = true;
     if((q_goal[0] == (Math.round(temp.x/eps) *eps)) && (q_goal[1] == (Math.round(temp.y/eps)*eps))){
         drawHighlightedPathGraph(temp);
+        search_iterate = false;
         return "succeeded";
     }
     else{
         //up
-        if(!testCollision([Math.round(temp.x/eps) *eps, Math.round((temp.y + eps)/eps )*eps]) 
+        if(!testCollision([G[temp.i - 1][temp.j].x, G[temp.i - 1][temp.j].y]) 
         && !G[temp.i - 1][temp.j].visited){
             if(!G[temp.i - 1][temp.j].queued){
                 G[temp.i - 1][temp.j].parent = temp;
@@ -97,7 +98,7 @@ function iterateGraphSearch() {
                 draw_2D_configuration([temp.x - eps, temp.y], "queued");
             }
         }
-        if(!testCollision([Math.round((temp.x + eps)/eps) *eps, Math.round((temp.y)/eps )*eps]) 
+        if(!testCollision([G[temp.i][temp.j + 1].x, G[temp.i][temp.j + 1].y]) 
         && !G[temp.i][temp.j + 1].visited){
             if(!G[temp.i][temp.j + 1].queued){
                 G[temp.i][temp.j + 1].parent = temp;
@@ -111,7 +112,7 @@ function iterateGraphSearch() {
                 draw_2D_configuration([temp.x, temp.y + eps], "queued");
             }
         }
-        if(!testCollision([Math.round((temp.x)/eps) *eps, Math.round((temp.y - eps)/eps )*eps]) 
+        if(!testCollision([G[temp.i + 1][temp.j].x, G[temp.i + 1][temp.j].y]) 
         && !G[temp.i + 1][temp.j].visited){
             if(!G[temp.i + 1][temp.j].queued){
                 G[temp.i + 1][temp.j].parent = temp;
@@ -125,7 +126,7 @@ function iterateGraphSearch() {
                 draw_2D_configuration([temp.x + eps, temp.y], "queued");
             }
         }
-        if(!testCollision([Math.round((temp.x - eps)/eps) *eps, Math.round((temp.y)/eps )*eps]) 
+        if(!testCollision([G[temp.i][temp.j - 1].x, G[temp.i][temp.j - 1].y]) 
         && !G[temp.i][temp.j - 1].visited){
             if(!G[temp.i][temp.j - 1].queued){
                 G[temp.i][temp.j - 1].parent = temp;
