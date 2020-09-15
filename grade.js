@@ -66,23 +66,23 @@ grade =
         "test results": {
           "Test 2": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: Search time out\n"
+            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_2.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
           }, 
           "Test 3": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: Search time out\n"
+            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_3.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
           }, 
           "Test 0": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: Search time out\n"
+            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_0.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
           }, 
           "Test 1": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: Search time out\n"
+            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_1.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
           }, 
           "Test 4": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: Search time out\n"
+            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_4.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
           }
         }, 
         "comments": [
