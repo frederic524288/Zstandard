@@ -62,31 +62,31 @@ grade =
         ]
       }, 
       "PathPlan_AStar": {
-        "status": "PENDING", 
+        "status": "PASS", 
         "test results": {
           "Test 2": {
-            "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_2.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
+            "Status": "Succeed", 
+            "Stderr": "N/A"
           }, 
           "Test 3": {
-            "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_3.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
+            "Status": "Succeed", 
+            "Stderr": "N/A"
           }, 
           "Test 0": {
-            "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_0.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
+            "Status": "Succeed", 
+            "Stderr": "N/A"
           }, 
           "Test 1": {
-            "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_1.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
+            "Status": "Succeed", 
+            "Stderr": "N/A"
           }, 
           "Test 4": {
-            "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/PathPlan_AStar/test_4.js:410\n    draw_2D_configuration([temp.x, temp.y], \"visited\");\n                                ^\n\nTypeError: Cannot read proper"
+            "Status": "Succeed", 
+            "Stderr": "N/A"
           }
         }, 
         "comments": [
-          "0 out of 5 test cases passed"
+          "5 out of 5 test cases passed"
         ]
       }, 
       "Pendularm_Euler": {
