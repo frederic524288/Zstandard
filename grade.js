@@ -1,3 +1,4 @@
+//CI grader generates report at 22-09-2020-00-24-28
 grade = 
 {
   "yuzeren": {
@@ -14,7 +15,7 @@ grade =
         ]
       }, 
       "PathPlan_Heap": {
-        "status": "PASS", 
+        "status": "CHECK", 
         "test results": {
           "Test 8": {
             "Status": "Succeed", 
@@ -58,11 +59,11 @@ grade =
           }
         }, 
         "comments": [
-          "10 out of 10 test cases passed"
+          "Point: 4/4, due day check pass, good work!"
         ]
       }, 
       "PathPlan_AStar": {
-        "status": "PASS", 
+        "status": "CHECK", 
         "test results": {
           "Test 2": {
             "Status": "Succeed", 
@@ -86,25 +87,51 @@ grade =
           }
         }, 
         "comments": [
-          "5 out of 5 test cases passed"
+          "Point: 8/8, due day check pass, good work!"
         ]
       }, 
       "Pendularm_Euler": {
         "status": "PENDING", 
+        "test results": {
+          "Test 0": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_Euler/test_0.js:76\n    pendulum.angle_dot_dot = pendulum_acceleration(pendulum, gravity); \n    ^\n\nReferenceError: pendulum_acceleration is "
+          }, 
+          "Test 1": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_Euler/test_1.js:76\n    pendulum.angle_dot_dot = pendulum_acceleration(pendulum, gravity); \n    ^\n\nReferenceError: pendulum_acceleration is "
+          }
+        }, 
         "comments": [
-          ""
+          "0 out of 2 test cases passed"
         ]
       }, 
       "Pendularm_VelocityVerlet": {
         "status": "PENDING", 
+        "test results": {
+          "Test 0": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_VelocityVerlet/test_0.js:76\n    pendulum.angle_dot_dot = pendulum_acceleration(pendulum, gravity); \n    ^\n\nReferenceError: pendulum_acceler"
+          }, 
+          "Test 1": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_VelocityVerlet/test_1.js:76\n    pendulum.angle_dot_dot = pendulum_acceleration(pendulum, gravity); \n    ^\n\nReferenceError: pendulum_acceler"
+          }
+        }, 
         "comments": [
-          ""
+          "0 out of 2 test cases passed"
         ]
       }, 
       "Pendularm_PID": {
         "status": "PENDING", 
+        "test results": {
+          "Test 0": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_PID/test_0.js:41\n    pendulum = set_PID_parameters(pendulum)\n    ^\n\nReferenceError: set_PID_parameters is not defined\n    at init (/home/ee"
+          }
+        }, 
         "comments": [
-          ""
+          "0 out of 1 test cases passed"
         ]
       }, 
       "FK_MatrixRoutines": {
@@ -200,7 +227,7 @@ grade =
     }, 
     "quizzes": [
       {
-        "status": "PENDING"
+        "status": 3.0
       }, 
       {
         "status": "PENDING"
