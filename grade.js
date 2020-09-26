@@ -1,4 +1,4 @@
-//CI grader generates report at 26-09-2020-12-06-50
+//CI grader generates report at 26-09-2020-18-06-47
 grade = 
 {
   "yuzeren": {
@@ -95,11 +95,11 @@ grade =
         "test results": {
           "Test 0": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_Euler/test_0.js:76\n    pendulum.angle_dot_dot = pendulum_acceleration(pendulum, gravity); \n    ^\n\nReferenceError: pendulum_acceleration is "
+            "Stderr": "[ERROR]: Test failed\n"
           }, 
           "Test 1": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_Euler/test_1.js:76\n    pendulum.angle_dot_dot = pendulum_acceleration(pendulum, gravity); \n    ^\n\nReferenceError: pendulum_acceleration is "
+            "Stderr": "[ERROR]: Test failed\n"
           }
         }, 
         "comments": [
@@ -107,19 +107,19 @@ grade =
         ]
       }, 
       "Pendularm_VelocityVerlet": {
-        "status": "PENDING", 
+        "status": "PASS", 
         "test results": {
           "Test 0": {
-            "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_VelocityVerlet/test_0.js:76\n    pendulum.angle_dot_dot = pendulum_acceleration(pendulum, gravity); \n    ^\n\nReferenceError: pendulum_acceler"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 1": {
-            "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_VelocityVerlet/test_1.js:76\n    pendulum.angle_dot_dot = pendulum_acceleration(pendulum, gravity); \n    ^\n\nReferenceError: pendulum_acceler"
+            "Status": "Succeed", 
+            "Stderr": ""
           }
         }, 
         "comments": [
-          "0 out of 2 test cases passed"
+          "2 out of 2 test cases passed"
         ]
       }, 
       "Pendularm_PID": {
@@ -127,7 +127,7 @@ grade =
         "test results": {
           "Test 0": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/Pendularm_PID/test_0.js:41\n    pendulum = set_PID_parameters(pendulum)\n    ^\n\nReferenceError: set_PID_parameters is not defined\n    at init (/home/ee"
+            "Stderr": "[ERROR]: PID test with velocity verlet failed\n"
           }
         }, 
         "comments": [
