@@ -1,4 +1,4 @@
-//CI grader generates report at 28-09-2020-18-06-56
+//CI grader generates report at 29-09-2020-00-08-07
 grade = 
 {
   "yuzeren": {
@@ -127,7 +127,7 @@ grade =
         "test results": {
           "Test 0": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: PID test with velocity verlet failed\n"
+            "Stderr": "[ERROR]: PID overshoot too large or it diverges, please tune your PID values\n"
           }
         }, 
         "comments": [
