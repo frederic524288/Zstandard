@@ -8,8 +8,8 @@ function update_pendulum_state(numerical_integrator, pendulum, dt, gravity) {
     if (numerical_integrator === "euler") {
     // STENCIL: a correct Euler integrator is REQUIRED for assignment
         pendulum.angle_previous = pendulum.angle;
-        pendulum.angle = pendulum.angle + dt * pendulum.angle_dot;
         theta_dotdot = pendulum_acceleration(pendulum, gravity);
+        pendulum.angle = pendulum.angle + dt * pendulum.angle_dot;
         pendulum.angle_dot = pendulum.angle_dot + dt * theta_dotdot;
     }
     else if (numerical_integrator === "verlet") {
@@ -54,17 +54,17 @@ function init_verlet_integrator(pendulum, t, gravity) {
 
 function set_PID_parameters(pendulum) {
     // STENCIL: change pid parameters
-    pendulum.servo = {kp:0, kd:0, ki:0};  // no control
+    pendulum.servo = {kp: 290, kd:250, ki:0};  // no control
     return pendulum;
 }
 
 function PID(pendulum, accumulated_error, dt) {
     // STENCIL: implement PID controller
     // return: updated output in pendulum.control and accumulated_error 
-    var error = pendulum.angle - pendulum.desired;
+    var error = pendulum.desired - pendulum.angle;
     accumulated_error = accumulated_error + error;
-    pre_error = pendulum.angle_previous - pendulum.desired;
-    pendulum.control = pendulum.servo.kp * error + pendulum.servo.ki * accumulated_error 
+    pre_error = pendulum.desired - pendulum.angle_previous;
+    pendulum.control += pendulum.servo.kp * error + pendulum.servo.ki * accumulated_error 
     + pendulum.servo.kp * (error - pre_error) / dt;
 
     return [pendulum, accumulated_error];
