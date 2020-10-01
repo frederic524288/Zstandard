@@ -1,4 +1,4 @@
-//CI grader generates report at 30-09-2020-18-07-15
+//CI grader generates report at 01-10-2020-00-08-15
 grade = 
 {
   "yuzeren": {
@@ -91,7 +91,7 @@ grade =
         ]
       }, 
       "Pendularm_Euler": {
-        "status": "PENDING", 
+        "status": "DUE", 
         "test results": {
           "Test 0": {
             "Status": "Failed", 
@@ -123,11 +123,11 @@ grade =
         ]
       }, 
       "Pendularm_PID": {
-        "status": "PENDING", 
+        "status": "DUE", 
         "test results": {
           "Test 0": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: PID test with velocity verlet failed\n"
+            "Stderr": "[ERROR]: PID overshoot too large or it diverges, please tune your PID values\n"
           }
         }, 
         "comments": [
