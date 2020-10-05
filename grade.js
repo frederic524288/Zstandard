@@ -1,4 +1,4 @@
-//CI grader generates report at 03-10-2020-00-07-54
+//CI grader generates report at 05-10-2020-00-08-36
 grade = 
 {
   "yuzeren": {
@@ -103,11 +103,11 @@ grade =
           }
         }, 
         "comments": [
-          "0 out of 2 test cases passed"
+          "Point: 0/4, integrator not working properly in due day manual check. Also, please update the html file from updstream. We will still assgin partial credit if you complete after dued day check"
         ]
       }, 
       "Pendularm_VelocityVerlet": {
-        "status": "PASS", 
+        "status": "DUE", 
         "test results": {
           "Test 0": {
             "Status": "Succeed", 
@@ -119,7 +119,7 @@ grade =
           }
         }, 
         "comments": [
-          "2 out of 2 test cases passed"
+          "Point: 0/4, integrator not working properly in due day manual check. Also, please update the html file from updstream. We will still assgin partial credit if you complete after dued day check"
         ]
       }, 
       "Pendularm_PID": {
@@ -131,19 +131,59 @@ grade =
           }
         }, 
         "comments": [
-          "0 out of 1 test cases passed"
+          "Point: 0/4, PID not working properly in due day manual check. Also, please update the html file from updstream. We will still assgin partial credit if you complete after dued day check"
         ]
       }, 
       "FK_MatrixRoutines": {
         "status": "PENDING", 
+        "test results": {
+          "Test 0": {
+            "Status": "Failed", 
+            "Stderr": "matrix_multiply undefined\nmatrix_transpose undefined\nvector_normalize undefined\nvector_cross undefined\ngenerate_identity undefined\ngenerate_translation_matrix undefined\ngenerate_rotation_matrix_X undefined\ngenerate_rotation_matrix_Y undefined\ngenerate_rotation_matrix_Z undefined\nAt least one function undefined\n"
+          }
+        }, 
         "comments": [
-          ""
+          "0 out of 1 test cases passed"
         ]
       }, 
       "FK_Transforms": {
         "status": "PENDING", 
+        "test results": {
+          "Test 2": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_2.js:753\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_2.js:753:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_2.js:1073:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (in"
+          }, 
+          "Test 3": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_3.js:532\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_3.js:532:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_3.js:852:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+          }, 
+          "Test 0": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_0.js:618\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_0.js:618:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_0.js:938:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+          }, 
+          "Test 1": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_1.js:501\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_1.js:501:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_1.js:821:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+          }, 
+          "Test 6": {
+            "Status": "Succeed", 
+            "Stderr": "Only for graduate session, skip testing"
+          }, 
+          "Test 7": {
+            "Status": "Succeed", 
+            "Stderr": "Only for graduate session, skip testing"
+          }, 
+          "Test 4": {
+            "Status": "Failed", 
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_4.js:526\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_4.js:526:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_4.js:846:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+          }, 
+          "Test 5": {
+            "Status": "Succeed", 
+            "Stderr": "Only for graduate session, skip testing"
+          }
+        }, 
         "comments": [
-          ""
+          "3 out of 8 test cases passed"
         ]
       }, 
       "FK_JointRendering": {
@@ -230,7 +270,7 @@ grade =
         "status": 3.0
       }, 
       {
-        "status": "PENDING"
+        "status": 3.5
       }, 
       {
         "status": "PENDING"
@@ -241,6 +281,10 @@ grade =
       {
         "status": "PENDING"
       }
-    ]
+    ], 
+    "participation": {
+      "status": 2.0, 
+      "comments": "Pod submitted name and logo, Extra+1.5 Most Pod Spirit Challenge"
+    }
   }
 }
