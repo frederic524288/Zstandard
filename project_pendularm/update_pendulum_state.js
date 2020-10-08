@@ -6,23 +6,26 @@ function update_pendulum_state(numerical_integrator, pendulum, dt, gravity) {
         numerical_integrator = "none";
 
     if (numerical_integrator === "euler") {
-    // STENCIL: a correct Euler integrator is REQUIRED for assignment
         pendulum.angle_previous = pendulum.angle;
         var theta_dotdot = pendulum_acceleration(pendulum, gravity);
         pendulum.angle = pendulum.angle + pendulum.angle_dot * dt;
         pendulum.angle_dot = pendulum.angle_dot + theta_dotdot * dt;
+    // STENCIL: a correct Euler integrator is REQUIRED for assignment
+
     }
     else if (numerical_integrator === "verlet") {
 
     // STENCIL: basic Verlet integration
+
     }
     else if (numerical_integrator === "velocity verlet") {
-    // STENCIL: a correct velocity Verlet integrator is REQUIRED for assignment
         pendulum.angle_previous = pendulum.angle;
         var a_now = pendulum_acceleration(pendulum, gravity);
         pendulum.angle = pendulum.angle + pendulum.angle_dot * dt + a_now * dt * dt / 2;
         var a_later = pendulum_acceleration(pendulum, gravity);
         pendulum.angle_dot = pendulum.angle_dot + (a_now + a_later)/2 * dt;
+    // STENCIL: a correct velocity Verlet integrator is REQUIRED for assignment
+
     }
     else if (numerical_integrator === "runge-kutta") {
 
@@ -40,9 +43,9 @@ function update_pendulum_state(numerical_integrator, pendulum, dt, gravity) {
 
 function pendulum_acceleration(pendulum, gravity) {
     // STENCIL: return acceleration(s) system equation(s) of motion 
-
-    return -gravity / pendulum.length * Math.sin(pendulum.angle) 
+    var acc =  -gravity / pendulum.length * Math.sin(pendulum.angle) 
     + PID(pendulum,accumulated_error, dt)[0].control / pendulum.mass/ (pendulum.length * pendulum.length);
+    return acc;
 }
 
 function init_verlet_integrator(pendulum, t, gravity) {
@@ -54,17 +57,13 @@ function init_verlet_integrator(pendulum, t, gravity) {
 
 function set_PID_parameters(pendulum) {
     // STENCIL: change pid parameters
-    pendulum.servo = {kp: 500, kd:120, ki:930};  // no control
+    pendulum.servo = {kp:0, kd:0, ki:0};  // no control
     return pendulum;
 }
 
 function PID(pendulum, accumulated_error, dt) {
     // STENCIL: implement PID controller
-    // return: updated output in pendulum.control and accumulated_error 
-    var pid_error = pendulum.desired - pendulum.angle;
-    var pre_error = pendulum.desired - pendulum.angle_previous;
-    accumulated_error = accumulated_error + pid_error;
-    pendulum.control = pendulum.control + pendulum.servo.kp * pid_error + pendulum.servo.ki * accumulated_error 
-    + pendulum.servo.kd * (pid_error - pre_error)/dt;
+    // return: updated output in pendulum.control and accumulated_error
+
     return [pendulum, accumulated_error];
 }
