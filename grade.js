@@ -1,4 +1,4 @@
-//CI grader generates report at 28-10-2020-00-26-36
+//CI grader generates report at 28-10-2020-06-07-12
 grade = 
 {
   "yuzeren": {
@@ -135,15 +135,15 @@ grade =
         ]
       }, 
       "FK_MatrixRoutines": {
-        "status": "PENDING", 
+        "status": "PASS", 
         "test results": {
           "Test 0": {
-            "Status": "Failed", 
-            "Stderr": "matrix_multiply undefined\nmatrix_transpose undefined\nvector_normalize undefined\nvector_cross undefined\ngenerate_identity undefined\ngenerate_translation_matrix undefined\ngenerate_rotation_matrix_X undefined\ngenerate_rotation_matrix_Y undefined\ngenerate_rotation_matrix_Z undefined\nAt least one function undefined\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }
         }, 
         "comments": [
-          "0 out of 1 test cases passed"
+          "1 out of 1 test cases passed"
         ]
       }, 
       "FK_Transforms": {
@@ -151,19 +151,19 @@ grade =
         "test results": {
           "Test 2": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_2.js:753\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_2.js:753:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_2.js:1073:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (in"
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_2.js:855\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_2.js:855:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_2.js:1175:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (in"
           }, 
           "Test 3": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_3.js:532\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_3.js:532:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_3.js:852:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_3.js:634\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_3.js:634:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_3.js:954:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
           }, 
           "Test 0": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_0.js:618\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_0.js:618:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_0.js:938:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_0.js:720\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_0.js:720:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_0.js:1040:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (in"
           }, 
           "Test 1": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_1.js:501\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_1.js:501:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_1.js:821:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_1.js:603\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_1.js:603:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_1.js:923:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
           }, 
           "Test 6": {
             "Status": "Succeed", 
@@ -175,7 +175,7 @@ grade =
           }, 
           "Test 4": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_4.js:526\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_4.js:526:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_4.js:846:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_4.js:628\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_4.js:628:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_4.js:948:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
           }, 
           "Test 5": {
             "Status": "Succeed", 
