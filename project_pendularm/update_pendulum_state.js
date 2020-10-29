@@ -28,7 +28,6 @@ function update_pendulum_state(numerical_integrator, pendulum, dt, gravity) {
 
     }
     else if (numerical_integrator === "runge-kutta") {
-
     // STENCIL: Runge-Kutta 4 integrator
     } 
     else {
@@ -43,21 +42,20 @@ function update_pendulum_state(numerical_integrator, pendulum, dt, gravity) {
 
 function pendulum_acceleration(pendulum, gravity) {
     // STENCIL: return acceleration(s) system equation(s) of motion 
-    var acc =  -gravity / pendulum.length * Math.sin(pendulum.angle) 
-    + PID(pendulum,accumulated_error, dt)[0].control / pendulum.mass/ (pendulum.length * pendulum.length);
+    var acc =  -gravity / pendulum.length * Math.sin(pendulum.angle);
+    //+ PID(pendulum,accumulated_error, dt)[0].control / pendulum.mass/ (pendulum.length * pendulum.length);
     return acc;
 }
 
 function init_verlet_integrator(pendulum, t, gravity) {
     // STENCIL: for verlet integration, a first step in time is needed
     // return: updated pendulum state and time
-
     return [pendulum, t];
 }
 
 function set_PID_parameters(pendulum) {
     // STENCIL: change pid parameters
-    pendulum.servo = {kp:70, kd:40, ki:300};  // no control
+    pendulum.servo = {kp:0, kd:0, ki:0};  // no control
     return pendulum;
 }
 

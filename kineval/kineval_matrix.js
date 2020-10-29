@@ -130,7 +130,7 @@ function generate_rotation_matrix_Y(angle) {
 function generate_rotation_matrix_Z(angle) {
     // returns 4-by-4 matrix as a 2D array, angle is in radians
     var temp = [[Math.cos(angle),-Math.sin(angle),0,0],
-                [Math.sin(angle),Math.cos(angle),0,0]
+                [Math.sin(angle),Math.cos(angle),0,0],
                 [0,0,1,0],[0,0,0,1]];
     return temp;
 }
