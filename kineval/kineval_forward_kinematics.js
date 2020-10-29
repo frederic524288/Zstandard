@@ -24,7 +24,12 @@ kineval.robotForwardKinematics = function robotForwardKinematics () {
     }
 
     // STENCIL: implement kineval.buildFKTransforms();
-
+    var translational = generate_translation_matrix(robot.origin.xyz[0], robot.origin.xyz[1], robot.origin.xyz[2]);
+    var xR = generate_rotation_matrix_X(robot.origin.rpy[0]);
+    var yR = generate_rotation_matrix_X(robot.origin.rpy[1]);
+    var zR = generate_rotation_matrix_X(robot.origin.rpy[2]);
+    robot.links[robot.base].xform = matrix_multiply(matrix_multiply(matrix_multiply(translational, xR),yR),zR);
+    kineval.buildFKTransforms(robot.base);
 }
 
     // STENCIL: reference code alternates recursive traversal over 
@@ -40,4 +45,21 @@ kineval.robotForwardKinematics = function robotForwardKinematics () {
     // if geometries are imported and using ROS coordinates (e.g., fetch),
     //   coordinate conversion is needed for kineval/threejs coordinates:
     //
+    kineval.buildFKTransforms = function buildFKTransforms(part){
+        if(!robot.links[part].child) return
+        for(var i =0; i < robot.links[part].child.length; i++){
+            var translational = generate_translation_matrix(
+                robot.joints[robot.links[part].child[i]].origin.xyz[0], 
+                robot.joints[robot.links[part].child[i]].origin.xyz[1], 
+                robot.joints[robot.links[part].child[i]].origin.xyz[2]);
+            var xR = generate_rotation_matrix_X(robot.joints[robot.links[part].child[i]].origin.rpy[0]);
+            var yR = generate_rotation_matrix_X(robot.joints[robot.links[part].child[i]].origin.rpy[1]);
+            var zR = generate_rotation_matrix_X(robot.joints[robot.links[part].child[i]].origin.rpy[2]);
 
+            robot.joints[robot.links[part].child[i]].xform = matrix_multiply(robot.links[part].xform,
+                matrix_multiply(matrix_multiply(matrix_multiply(translational, xR),yR),zR));
+            robot.links[robot.joints[robot.links[part].child[i]].child].xform = 
+                robot.joints[robot.links[part].child[i]].xform;
+            kineval.buildFKTransforms(robot.joints[robot.links[part].child[i]].child);
+        }
+    }
