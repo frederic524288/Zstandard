@@ -1,4 +1,4 @@
-//CI grader generates report at 29-10-2020-12-08-04
+//CI grader generates report at 29-10-2020-18-08-51
 grade = 
 {
   "yuzeren": {
@@ -151,19 +151,19 @@ grade =
         "test results": {
           "Test 2": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_2.js:855\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_2.js:855:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_2.js:1175:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (in"
+            "Stderr": "Robot crawler joints transformation incorrect\n"
           }, 
           "Test 3": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_3.js:634\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_3.js:634:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_3.js:954:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+            "Stderr": "Robot br2 joints transformation incorrect\n"
           }, 
           "Test 0": {
-            "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_0.js:720\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_0.js:720:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_0.js:1040:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (in"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 1": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_1.js:603\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_1.js:603:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_1.js:923:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+            "Stderr": "Robot urdf_example joints transformation incorrect\n"
           }, 
           "Test 6": {
             "Status": "Succeed", 
@@ -175,7 +175,7 @@ grade =
           }, 
           "Test 4": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FK_Transforms/test_4.js:628\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FK_Transforms/test_4.js:628:13)\n    at Object.<anonymous> (/yuzeren/FK_Transforms/test_4.js:948:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at Object.Module._extensions..js (int"
+            "Stderr": "Robot y joints transformation incorrect\n"
           }, 
           "Test 5": {
             "Status": "Succeed", 
@@ -183,7 +183,7 @@ grade =
           }
         }, 
         "comments": [
-          "3 out of 8 test cases passed"
+          "4 out of 8 test cases passed"
         ]
       }, 
       "FK_JointRendering": {
@@ -215,7 +215,7 @@ grade =
         "test results": {
           "Test 0": {
             "Status": "Failed", 
-            "Stderr": "Error message too long, print partially: /yuzeren/FSMDance_SetpointControl/test_0.js:147\n    kineval.initRobotJoints();\n            ^\n\nTypeError: kineval.initRobotJoints is not a function\n    at Object.initRobot (/yuzeren/FSMDance_SetpointControl/test_0.js:147:13)\n    at Object.<anonymous> (/yuzeren/FSMDance_SetpointControl/test_0.js:290:9)\n    at Module._compile (internal/modules/cjs/loader.js:1137:30)\n    at O"
+            "Stderr": "[ERROR]: Setpoint control test failed\n"
           }
         }, 
         "comments": [
