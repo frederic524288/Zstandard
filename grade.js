@@ -1,4 +1,4 @@
-//CI grader generates report at 30-10-2020-00-08-53
+//CI grader generates report at 30-10-2020-06-07-59
 grade = 
 {
   "yuzeren": {
@@ -193,15 +193,15 @@ grade =
         ]
       }, 
       "FSMDance_Quaternion": {
-        "status": "PENDING", 
+        "status": "PASS", 
         "test results": {
           "Test 0": {
-            "Status": "Failed", 
-            "Stderr": "quaternionFromAxisAngle undefined\nquaternionNormalize undefined\nquaternionMultiply undefined\nquaternionToRotationMatrix undefined\nAt least one function undefined\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }
         }, 
         "comments": [
-          "0 out of 1 test cases passed"
+          "1 out of 1 test cases passed"
         ]
       }, 
       "FSMDance_RexArm": {
