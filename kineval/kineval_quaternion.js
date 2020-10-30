@@ -53,4 +53,5 @@ kineval.quaternionToRotationMatrix = function quaternion_to_rotation_matrix (q) 
     temp[2][0] = 2 * (q.b * q.d - q.a * q.c);
     temp[2][1] = 2 * (q.a * q.b + q.c * q.d);
     temp[2][2] = 1 - 2 * (q.b *q.b + q.c * q.c);
+    return temp;
 }
