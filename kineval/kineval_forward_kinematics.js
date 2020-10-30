@@ -43,7 +43,7 @@ kineval.robotForwardKinematics = function robotForwardKinematics () {
     var yR = generate_rotation_matrix_Y(robot.origin.rpy[1]);
     var zR = generate_rotation_matrix_Z(robot.origin.rpy[2]);
 
-    robot.links[robot.base].xform = matrix_multiply(matrix_multiply(matrix_multiply(translational, xR),yR),zR);
+    robot.links[robot.base].xform = matrix_multiply(matrix_multiply(matrix_multiply(translational, zR),yR),xR);
     robot_heading = matrix_multiply(robot.links[robot.base].xform, robot_heading);
     robot_lateral = matrix_multiply(robot.links[robot.base].xform, robot_lateral);
     //robot_heading = vector_normalize(robot_heading);
@@ -79,7 +79,7 @@ kineval.robotForwardKinematics = function robotForwardKinematics () {
             var cR = kineval.quaternionToRotationMatrix(kineval.quaternionFromAxisAngle(
                 robot.joints[robot.links[part].children[i]].axis,robot.joints[robot.links[part].children[i]].angle));
             robot.joints[robot.links[part].children[i]].xform = matrix_multiply(robot.links[part].xform,
-                matrix_multiply(matrix_multiply(matrix_multiply(translational, xR),yR),zR));
+                matrix_multiply(matrix_multiply(matrix_multiply(translational, zR),yR),xR));
             robot.joints[robot.links[part].children[i]].xform = matrix_multiply(
                 robot.joints[robot.links[part].children[i]].xform, cR);
             robot.links[robot.joints[robot.links[part].children[i]].child].xform = 
