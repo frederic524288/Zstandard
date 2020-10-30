@@ -24,11 +24,28 @@ kineval.robotForwardKinematics = function robotForwardKinematics () {
     }
 
     // STENCIL: implement kineval.buildFKTransforms();
-    var translational = generate_translation_matrix(robot.origin.xyz[0], robot.origin.xyz[1], robot.origin.xyz[2]);
+    robot.origin.rpy[1] += robot.control.rpy[1];
+
+    robot_heading = [[robot.origin.xyz[0] + 1],[0],[0],[1]];
+    //robot_heading = matrix_multiply(generate_rotation_matrix_Y(robot.origin.rpy[1]), robot_heading);
+    //robot_heading = vector_normalize(robot_heading);
+
+    robot_lateral = [[0],[0],[robot.origin.xyz[2] + 1],[1]];
+    //robot_lateral = matrix_multiply(generate_rotation_matrix_Y(robot.origin.rpy[1]), robot_lateral);
+    //robot_lateral = vector_normalize(robot_lateral);
+
+    robot.origin.xyz[0] += robot.control.xyz[0];
+    robot.origin.xyz[2] += robot.control.xyz[2];
+
+    var translational = generate_translation_matrix(robot.origin.xyz[0], 
+        robot.origin.xyz[1], robot.origin.xyz[2]);
     var xR = generate_rotation_matrix_X(robot.origin.rpy[0]);
     var yR = generate_rotation_matrix_Y(robot.origin.rpy[1]);
     var zR = generate_rotation_matrix_Z(robot.origin.rpy[2]);
+
     robot.links[robot.base].xform = matrix_multiply(matrix_multiply(matrix_multiply(translational, xR),yR),zR);
+    robot_heading = matrix_multiply(robot.links[robot.base].xform, robot_heading);
+    robot_lateral = matrix_multiply(robot.links[robot.base].xform, robot_lateral);
     kineval.buildFKTransforms(robot.base);
 }
 
@@ -55,9 +72,13 @@ kineval.robotForwardKinematics = function robotForwardKinematics () {
             var xR = generate_rotation_matrix_X(robot.joints[robot.links[part].children[i]].origin.rpy[0]);
             var yR = generate_rotation_matrix_Y(robot.joints[robot.links[part].children[i]].origin.rpy[1]);
             var zR = generate_rotation_matrix_Z(robot.joints[robot.links[part].children[i]].origin.rpy[2]);
-
+            robot.joints[robot.links[part].children[i]].angle += robot.joints[robot.links[part].children[i]].control;
+            var cR = kineval.quaternionToRotationMatrix(kineval.quaternionFromAxisAngle(
+                robot.joints[robot.links[part].children[i]].axis,robot.joints[robot.links[part].children[i]].angle));
             robot.joints[robot.links[part].children[i]].xform = matrix_multiply(robot.links[part].xform,
                 matrix_multiply(matrix_multiply(matrix_multiply(translational, xR),yR),zR));
+            robot.joints[robot.links[part].children[i]].xform = matrix_multiply(
+                robot.joints[robot.links[part].children[i]].xform, cR);
             robot.links[robot.joints[robot.links[part].children[i]].child].xform = 
                 robot.joints[robot.links[part].children[i]].xform;
             kineval.buildFKTransforms(robot.joints[robot.links[part].children[i]].child);

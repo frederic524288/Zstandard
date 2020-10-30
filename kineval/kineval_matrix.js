@@ -42,14 +42,14 @@ function matrix_multiply(m1,m2) {
     var m3 = [];
     for(var i = 0; i < m1.length; i++){
         var temp = [];
-        for(var j = 0; j < m1[0].length; j++){
+        for(var j = 0; j < m2[0].length; j++){
             temp.push(0);
         }
         m3.push(temp);
     }
 
     for(var i = 0; i < m1.length; i++){
-        for(var j = 0; j < m1[0].length; j++){
+        for(var j = 0; j < m2[0].length; j++){
             for(var c = 0; c < m1[0].length; c++){
                 m3[i][j] = m3[i][j] + m1[i][c] * m2[c][j]
             }
@@ -81,6 +81,17 @@ function matrix_transpose(m) {
 
 function vector_normalize(v) {
     // returns normalized vector for v
+    if(v[0][0] || (v[0][0] == 0)){
+        var norms = 0;
+        for(var i = 0 ; i < v.length; i++){
+            norms = norms + v[i][0] * v[i][0];
+        }
+        var norm = Math.sqrt(norms);
+        for(var i = 0 ; i < v.length; i++){
+            v[i][0] = v[i][0] / norm;
+        }
+        return v;
+    }
     var norms = 0;
     for(var i = 0 ; i < v.length; i++){
         norms = norms + v[i] * v[i];
