@@ -46,8 +46,8 @@ kineval.robotForwardKinematics = function robotForwardKinematics () {
     robot.links[robot.base].xform = matrix_multiply(matrix_multiply(matrix_multiply(translational, xR),yR),zR);
     robot_heading = matrix_multiply(robot.links[robot.base].xform, robot_heading);
     robot_lateral = matrix_multiply(robot.links[robot.base].xform, robot_lateral);
-    robot_heading = vector_normalize(robot_heading);
-    robot_lateral = vector_normalize(robot_lateral);
+    //robot_heading = vector_normalize(robot_heading);
+    //robot_lateral = vector_normalize(robot_lateral);
 
     kineval.buildFKTransforms(robot.base);
 }
