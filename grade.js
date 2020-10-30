@@ -1,4 +1,4 @@
-//CI grader generates report at 29-10-2020-18-08-51
+//CI grader generates report at 30-10-2020-00-08-53
 grade = 
 {
   "yuzeren": {
@@ -150,8 +150,8 @@ grade =
         "status": "PENDING", 
         "test results": {
           "Test 2": {
-            "Status": "Failed", 
-            "Stderr": "Robot crawler joints transformation incorrect\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 3": {
             "Status": "Failed", 
@@ -162,8 +162,8 @@ grade =
             "Stderr": ""
           }, 
           "Test 1": {
-            "Status": "Failed", 
-            "Stderr": "Robot urdf_example joints transformation incorrect\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 6": {
             "Status": "Succeed", 
@@ -183,7 +183,7 @@ grade =
           }
         }, 
         "comments": [
-          "4 out of 8 test cases passed"
+          "6 out of 8 test cases passed"
         ]
       }, 
       "FK_JointRendering": {
