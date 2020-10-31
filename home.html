@@ -135,7 +135,38 @@ document.body.onload = kineval.start;
 function my_init() {
 
     kineval.startingPlaceholderInit(); // a quick and dirty JavaScript tutorial
+    kineval.setpoints =[{},{},{},{},{}];
+    kineval.setpoints[0].clavicle_left_roll = 0;
+    kineval.setpoints[0].clavicle_right_yaw = 0;
+    kineval.setpoints[0].forearm_right_yaw = 1.2;
+    kineval.setpoints[0].shoulder_right_yaw = 0;
+    kineval.setpoints[0].upperarm_right_pitch = 0;
 
+    kineval.setpoints[1].clavicle_left_roll = 0;
+    kineval.setpoints[1].clavicle_right_yaw = -1.2;
+    kineval.setpoints[1].forearm_right_yaw = -0.88;
+    kineval.setpoints[1].shoulder_right_yaw = -1.96;
+    kineval.setpoints[1].upperarm_right_pitch = -1;
+
+    kineval.setpoints[2].clavicle_left_roll = 0;
+    kineval.setpoints[2].clavicle_right_yaw = -1.2;
+    kineval.setpoints[2].forearm_right_yaw = -0.88;
+    kineval.setpoints[2].shoulder_right_yaw = 1.96;
+    kineval.setpoints[2].upperarm_right_pitch = -1;
+
+    kineval.setpoints[3].clavicle_left_roll = 0;
+    kineval.setpoints[3].clavicle_right_yaw = -1.2;
+    kineval.setpoints[3].forearm_right_yaw = 1;
+    kineval.setpoints[3].shoulder_right_yaw = 1.96;
+    kineval.setpoints[3].upperarm_right_pitch = -1;
+
+    kineval.setpoints[4].clavicle_left_roll = 0;
+    kineval.setpoints[4].clavicle_right_yaw = -1.2;
+    kineval.setpoints[4].forearm_right_yaw = -0.88;
+    kineval.setpoints[4].shoulder_right_yaw = 1.96;
+    kineval.setpoints[4].upperarm_right_pitch = 1;
+
+    kineval.params.dance_sequence_index = [1,2,3,4]
 }
 
 //////////////////////////////////////////////////

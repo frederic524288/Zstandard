@@ -27,7 +27,7 @@ kineval.initRobotJoints = function initRobotJoints(matrix_transpose) {
         robot.joints[x].control = 0;
         robot.joints[x].servo = {};
         //set appropriate servo gains for arm setpoint control
-        robot.joints[x].servo.p_gain = 0.1; 
+        robot.joints[x].servo.p_gain = 0.07; 
         robot.joints[x].servo.p_desired = 0;
         robot.joints[x].servo.d_gain = 0.01; 
 /* STENCIL START */ 

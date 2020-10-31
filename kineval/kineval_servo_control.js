@@ -15,12 +15,38 @@
     License: Creative Commons 3.0 BY-SA
 
 |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| |\/| --*/
+var check = function(){
+    if(condition){
+        // run when condition is met
+    }
+    else {
+        setTimeout(check, 1000); // check again in a second
+    }
+}
+
 
 kineval.setpointDanceSequence = function execute_setpoints() {
 
     // if update not requested, exit routine
     if (!kineval.params.update_pd_dance) return; 
-
+    var error = 0;
+    for(var x in robot.joints){
+        error += (kineval.params.setpoint_target[x] - robot.joints[x].angle);
+    }
+    if((error < 0.1) && (error > -0.1)){
+        if(kineval.params.dance_pose_index != 5){
+            for(var x in kineval.setpoints[kineval.params.dance_sequence_index[kineval.params.dance_pose_index]]){
+                kineval.params.setpoint_target[x] = kineval.setpoints[kineval.params.dance_sequence_index[kineval.params.dance_pose_index]][x];
+            }
+            kineval.params.dance_pose_index += 1;
+        }
+        else{
+            for(var x in kineval.setpoints[kineval.params.dance_sequence_index[0]]){
+                kineval.params.setpoint_target[x] = kineval.setpoints[kineval.params.dance_sequence_index[0]][x];
+            }
+            kineval.params.dance_pose_index = 1;
+        }
+    }
     // STENCIL: implement FSM to cycle through dance pose setpoints
 }
 
