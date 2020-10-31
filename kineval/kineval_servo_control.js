@@ -31,10 +31,10 @@ kineval.setpointDanceSequence = function execute_setpoints() {
     if (!kineval.params.update_pd_dance) return; 
     var error = 0;
     for(var x in robot.joints){
-        error += (kineval.params.setpoint_target[x] - robot.joints[x].angle);
+        error += Math.abs((kineval.params.setpoint_target[x] - robot.joints[x].angle));
     }
-    if((error < 0.1) && (error > -0.1)){
-        if(kineval.params.dance_pose_index != 5){
+    if((error < 0.03) && (error > -0.03)){
+        if(kineval.params.dance_pose_index != 6){
             for(var x in kineval.setpoints[kineval.params.dance_sequence_index[kineval.params.dance_pose_index]]){
                 kineval.params.setpoint_target[x] = kineval.setpoints[kineval.params.dance_sequence_index[kineval.params.dance_pose_index]][x];
             }
