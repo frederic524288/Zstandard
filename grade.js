@@ -1,4 +1,4 @@
-//CI grader generates report at 30-10-2020-18-09-15
+//CI grader generates report at 31-10-2020-00-23-03
 grade = 
 {
   "yuzeren": {
@@ -147,15 +147,15 @@ grade =
         ]
       }, 
       "FK_Transforms": {
-        "status": "PENDING", 
+        "status": "PASS", 
         "test results": {
           "Test 2": {
             "Status": "Succeed", 
             "Stderr": ""
           }, 
           "Test 3": {
-            "Status": "Failed", 
-            "Stderr": "Robot br2 joints transformation incorrect\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 0": {
             "Status": "Succeed", 
@@ -174,8 +174,8 @@ grade =
             "Stderr": "Only for graduate session, skip testing"
           }, 
           "Test 4": {
-            "Status": "Failed", 
-            "Stderr": "Robot y joints transformation incorrect\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 5": {
             "Status": "Succeed", 
@@ -183,7 +183,7 @@ grade =
           }
         }, 
         "comments": [
-          "6 out of 8 test cases passed"
+          "8 out of 8 test cases passed"
         ]
       }, 
       "FK_JointRendering": {
@@ -211,15 +211,15 @@ grade =
         ]
       }, 
       "FSMDance_SetpointControl": {
-        "status": "PENDING", 
+        "status": "PASS", 
         "test results": {
           "Test 0": {
-            "Status": "Failed", 
-            "Stderr": "[ERROR]: Setpoint control test failed\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }
         }, 
         "comments": [
-          "0 out of 1 test cases passed"
+          "1 out of 1 test cases passed"
         ]
       }, 
       "FSMDance_FSM": {
