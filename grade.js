@@ -1,4 +1,4 @@
-//CI grader generates report at 09-11-2020-12-09-04
+//CI grader generates report at 10-11-2020-00-10-53
 grade = 
 {
   "yuzeren": {
@@ -333,8 +333,8 @@ grade =
       }
     ], 
     "participation": {
-      "status": 2.0, 
-      "comments": "Pod submitted name and logo, Extra+1.5 Most Pod Spirit Challenge"
+      "status": 2.5, 
+      "comments": "Pod submitted name and logo, Extra+1.5 Most Pod Spirit Challenge\nPod submitted dance off video "
     }
   }
 }
