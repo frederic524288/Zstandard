@@ -26,11 +26,11 @@ kineval.robotForwardKinematics = function robotForwardKinematics () {
     // STENCIL: implement kineval.buildFKTransforms();
     robot.origin.rpy[1] += robot.control.rpy[1];
 
-    robot_heading = [[robot.origin.xyz[0] + 1],[0],[0],[1]];
+    robot_heading = [[0],[0],[robot.origin.xyz[2] + 1],[1]];
     //robot_heading = matrix_multiply(generate_rotation_matrix_Y(robot.origin.rpy[1]), robot_heading);
     //robot_heading = vector_normalize(robot_heading);
 
-    robot_lateral = [[0],[0],[robot.origin.xyz[2] + 1],[1]];
+    robot_lateral = [[robot.origin.xyz[0] + 1],[0],[0],[1]];
     //robot_lateral = matrix_multiply(generate_rotation_matrix_Y(robot.origin.rpy[1]), robot_lateral);
     //robot_lateral = vector_normalize(robot_lateral);
 
