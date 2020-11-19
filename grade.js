@@ -1,4 +1,4 @@
-//CI grader generates report at 18-11-2020-18-05-14
+//CI grader generates report at 19-11-2020-00-06-14
 grade = 
 {
   "yuzeren": {
@@ -235,7 +235,7 @@ grade =
         ]
       }, 
       "IK_Jacobian": {
-        "status": "PENDING", 
+        "status": "DUE", 
         "test results": {
           "Test 0": {
             "Status": "Failed", 
@@ -251,7 +251,7 @@ grade =
         ]
       }, 
       "IK_JTranspose": {
-        "status": "PENDING", 
+        "status": "DUE", 
         "test results": {
           "Test 2": {
             "Status": "Failed", 
@@ -271,7 +271,7 @@ grade =
         ]
       }, 
       "IK_JPseudoInverse": {
-        "status": "PENDING", 
+        "status": "DUE", 
         "test results": {
           "Test 2": {
             "Status": "Failed", 
