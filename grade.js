@@ -1,4 +1,4 @@
-//CI grader generates report at 21-11-2020-12-05-13
+//CI grader generates report at 22-11-2020-01-17-42
 grade = 
 {
   "yuzeren": {
@@ -247,7 +247,7 @@ grade =
           }
         }, 
         "comments": [
-          "0 out of 2 test cases passed"
+          "Point: 0/6, due day check failed, we will still give partial points if you complete after due day"
         ]
       }, 
       "IK_JTranspose": {
@@ -267,7 +267,7 @@ grade =
           }
         }, 
         "comments": [
-          "0 out of 3 test cases passed"
+          "Point: 0/3, due day check failed, we will still give partial points if you complete after due day"
         ]
       }, 
       "IK_JPseudoInverse": {
@@ -287,19 +287,51 @@ grade =
           }
         }, 
         "comments": [
-          "0 out of 3 test cases passed"
+          "Point: 0/3, due day check failed, we will still give partial points if you complete after due day"
         ]
       }, 
       "MotionPlan_Collision": {
         "status": "PENDING", 
+        "test results": {
+          "Test 2": {
+            "Status": "Failed", 
+            "Stderr": "[ERROR]: Collision test 2 failed\n"
+          }, 
+          "Test 0": {
+            "Status": "Failed", 
+            "Stderr": "[ERROR]: Collision test 0 failed\n"
+          }, 
+          "Test 1": {
+            "Status": "Failed", 
+            "Stderr": "[ERROR]: Collision test 1 failed\n"
+          }
+        }, 
         "comments": [
-          ""
+          "0 out of 3 test cases passed"
         ]
       }, 
       "MotionPlan_2DRRTConnect": {
         "status": "PENDING", 
+        "test results": {
+          "Test 2": {
+            "Status": "Failed", 
+            "Stderr": "[ERROR]: Search time out\n"
+          }, 
+          "Test 3": {
+            "Status": "Failed", 
+            "Stderr": "[ERROR]: Search time out\n"
+          }, 
+          "Test 0": {
+            "Status": "Failed", 
+            "Stderr": "[ERROR]: Search time out\n"
+          }, 
+          "Test 1": {
+            "Status": "Failed", 
+            "Stderr": "[ERROR]: Search time out\n"
+          }
+        }, 
         "comments": [
-          ""
+          "0 out of 4 test cases passed"
         ]
       }, 
       "MotionPlan_CSpaceRRTConnect": {
@@ -326,7 +358,7 @@ grade =
         "status": 3.67
       }, 
       {
-        "status": "PENDING"
+        "status": 3.5
       }, 
       {
         "status": "PENDING"
