@@ -24,31 +24,45 @@ kineval.robotForwardKinematics = function robotForwardKinematics () {
     }
 
     // STENCIL: implement kineval.buildFKTransforms();
-    robot.origin.rpy[1] += robot.control.rpy[1];
-
-    robot_heading = [[0],[0],[robot.origin.xyz[2] + 1],[1]];
+    //robot.origin.rpy[1] += robot.control.rpy[1];
     //robot_heading = matrix_multiply(generate_rotation_matrix_Y(robot.origin.rpy[1]), robot_heading);
     //robot_heading = vector_normalize(robot_heading);
-
-    robot_lateral = [[robot.origin.xyz[0] + 1],[0],[0],[1]];
     //robot_lateral = matrix_multiply(generate_rotation_matrix_Y(robot.origin.rpy[1]), robot_lateral);
     //robot_lateral = vector_normalize(robot_lateral);
-
-    robot.origin.xyz[0] += robot.control.xyz[0];
-    robot.origin.xyz[2] += robot.control.xyz[2];
-
-    var translational = generate_translation_matrix(robot.origin.xyz[0], 
-        robot.origin.xyz[1], robot.origin.xyz[2]);
+    //robot.origin.xyz[0] += robot.control.xyz[0];
+    //robot.origin.xyz[2] += robot.control.xyz[2];
+    //var rotation = robot.links[robot.base].xform
+    //rotation[0][3] = 0;
+    //rotation[1][3] = 0;
+    //rotation[2][3] = 0;
+    //var translational = generate_translation_matrix(robot.control.xyz[0], 
+        //robot.control.xyz[1], robot.control.xyz[2]);
+    //var yR = generate_rotation_matrix_Y(robot.control.rpy[1]);
+    //robot.links[robot.base].xform = matrix_multiply(matrix_multiply(robot.links[robot.base].xform, translational),yR);
+    //robot_heading = matrix_multiply(rotation, robot_heading);
+    //robot_lateral = matrix_multiply(rotation, robot_lateral);
+    //robot_heading = vector_normalize(robot_heading);
+    //robot_lateral = vector_normalize(robot_lateral);
+    //robot_heading = matrix_multiply(yR, robot_heading);
+    //robot_lateral = matrix_multiply(yR, robot_lateral);
+    //robot_heading = matrix_transpose(robot.links[robot.base].xform)[0];
+    //robot_lateral = matrix_transpose(robot.links[robot.base].xform)[2];
+    var translational = generate_translation_matrix(
+        robot.origin.xyz[0], 
+        robot.origin.xyz[1], 
+        robot.origin.xyz[2]);
     var xR = generate_rotation_matrix_X(robot.origin.rpy[0]);
     var yR = generate_rotation_matrix_Y(robot.origin.rpy[1]);
     var zR = generate_rotation_matrix_Z(robot.origin.rpy[2]);
 
     robot.links[robot.base].xform = matrix_multiply(matrix_multiply(matrix_multiply(translational, zR),yR),xR);
-    robot_heading = matrix_multiply(robot.links[robot.base].xform, robot_heading);
-    robot_lateral = matrix_multiply(robot.links[robot.base].xform, robot_lateral);
-    //robot_heading = vector_normalize(robot_heading);
-    //robot_lateral = vector_normalize(robot_lateral);
+    robot_heading = [[0],[0],[1],[1]];
+    robot_lateral = [[1],[0],[0],[1]];
+    robot_heading = matrix_multiply(matrix_multiply(matrix_multiply(matrix_multiply(translational, zR),yR),xR),robot_heading);
+    robot_lateral = matrix_multiply(matrix_multiply(matrix_multiply(matrix_multiply(translational, zR),yR),xR),robot_lateral);
 
+    //robot_heading = matrix_multiply(robot.links[robot.base].xform, robot_heading);
+    //robot_lateral = matrix_multiply(robot.links[robot.base].xform, robot_lateral);
     kineval.buildFKTransforms(robot.base);
 }
 
