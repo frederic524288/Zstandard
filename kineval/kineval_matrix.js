@@ -5,15 +5,11 @@
 function matrix_copy(m1) {
     // returns 2D array that is a copy of m1
 
-    var mat = [];
-    var i,j;
-
-    for (i=0;i<m1.length;i++) { // for each row of m1
-        mat[i] = [];
-        for (j=0;j<m1[0].length;j++) { // for each column of m1
-            mat[i][j] = m1[i][j];
-        }
-    }
+    var mat = [[],[],[],[]];
+    mat[0] = m1[0].slice(0);
+    mat[1] = m1[1].slice(0);
+    mat[2] = m1[2].slice(0);
+    mat[3] = m1[3].slice(0);
     return mat;
 }
 
@@ -69,15 +65,22 @@ function matrix_transpose(m) {
     return m;
 }
 
-// function matrix_pseudoinverse(m) {
-//     // returns pseudoinverse of matrix m
+function matrix_pseudoinverse(m) {
+    //returns pseudoinverse of matrix m
+    if(m.length > m[0].length){
+        var temp = numeric.inv(matrix_multiply(matrix_transpose(m), m));
+        return matrix_multiply(temp, matrix_transpose(m));
+    }
+    else{
+        var temp = numeric.inv(matrix_multiply(m, matrix_transpose(m)));
+        return matrix_multiply(matrix_transpose(m), temp);
+    }
+}
 
-// }
+//function matrix_invert_affine(m) {
+     // returns 2D array that is the invert affine of 4-by-4 matrix m
 
-// function matrix_invert_affine(m) {
-//     // returns 2D array that is the invert affine of 4-by-4 matrix m
-
-// }
+//}
 
 function vector_normalize(v) {
     // returns normalized vector for v
