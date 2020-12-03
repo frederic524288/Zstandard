@@ -1,4 +1,4 @@
-//CI grader generates report at 02-12-2020-18-59-35
+//CI grader generates report at 03-12-2020-00-59-54
 grade = 
 {
   "yuzeren": {
@@ -238,12 +238,12 @@ grade =
         "status": "DUE", 
         "test results": {
           "Test 0": {
-            "Status": "Failed", 
-            "Stderr": "robot.jacobian not defined, please check whether you have assigned value for robot.jacobian\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 1": {
-            "Status": "Failed", 
-            "Stderr": "robot.jacobian not defined, please check whether you have assigned value for robot.jacobian\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }
         }, 
         "comments": [
@@ -254,16 +254,16 @@ grade =
         "status": "DUE", 
         "test results": {
           "Test 2": {
-            "Status": "Failed", 
-            "Stderr": "Target not reached\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 0": {
             "Status": "Failed", 
-            "Stderr": "robot.dq not defined, please check whether you have assigned value for robot.dq\n"
+            "Stderr": "[ERROR]: IK_JTranspose test 0 failed\n"
           }, 
           "Test 1": {
             "Status": "Failed", 
-            "Stderr": "robot.dq not defined, please check whether you have assigned value for robot.dq\n"
+            "Stderr": "[ERROR]: IK_JTranspose test 1 failed\n"
           }
         }, 
         "comments": [
@@ -274,16 +274,16 @@ grade =
         "status": "DUE", 
         "test results": {
           "Test 2": {
-            "Status": "Failed", 
-            "Stderr": "Target not reached\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 0": {
-            "Status": "Failed", 
-            "Stderr": "robot.dq not defined, please check whether you have assigned value for robot.dq\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 1": {
-            "Status": "Failed", 
-            "Stderr": "robot.dq not defined, please check whether you have assigned value for robot.dq\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }
         }, 
         "comments": [
