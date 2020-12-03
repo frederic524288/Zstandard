@@ -74,10 +74,49 @@ kineval.iterateIK = function iterate_inverse_kinematics(endeffector_target_world
     // robot.dq = T(robot.jacobian) * robot.dx  // where T(robot.jacobian) means apply some transformations to the Jacobian matrix, it could be Transpose, PseudoInverse, etc.
     // dtheta = alpha * robot.dq   // alpha: step length
     var endeff = matrix_multiply(robot.joints[endeffector_joint].xform, endeffector_position_local);
-    robot.dx = [[],[],[],[0],[0],[0]];
+    robot.dx = [[0],[0],[0],[0],[0],[0]];
     robot.dx[0][0] = endeffector_target_world.position[0][0] - endeff[0][0];
     robot.dx[1][0] = endeffector_target_world.position[1][0] - endeff[1][0];
     robot.dx[2][0] = endeffector_target_world.position[2][0] - endeff[2][0];
+
+    var part = endeffector_joint;
+    robot.jacobian = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
+    for(var i = 3; i >= 0; i--){
+        var origin = [[robot.joints[part].origin.xyz[0]], 
+                        [robot.joints[part].origin.xyz[1]],
+                        [robot.joints[part].origin.xyz[2]],[1]];
+        var axis = [[robot.joints[part].axis[0]], 
+                    [robot.joints[part].axis[1]], 
+                    [robot.joints[part].axis[2]], [1]];
+        var worigin = matrix_multiply(robot.joints[part].xform, origin);
+        var waxis = matrix_multiply(robot.joints[part].xform, axis);
+        var ri = [0,0,0];
+        ri[0] = endeff[0][0] - worigin[0][0];
+        ri[1] = endeff[1][0] - worigin[1][0];
+        ri[2] = endeff[2][0] - worigin[2][0];
+        var wi = [0,0,0];
+        wi[0] = waxis[0][0] - worigin[0][0];
+        wi[1] = waxis[1][0] - worigin[1][0];
+        wi[2] = waxis[2][0] - worigin[2][0];
+
+        var Jvi = vector_cross(ri,wi);
+        robot.jacobian[0][i] = Jvi[0];
+        robot.jacobian[1][i] = Jvi[1];
+        robot.jacobian[2][i] = Jvi[2];
+        robot.jacobian[3][i] = wi[0];
+        robot.jacobian[4][i] = wi[1];
+        robot.jacobian[5][i] = wi[2];
+
+        part = robot.links[robot.joints[part].parent].parent;
+    }
+    var jacoinver = matrix_pseudoinverse(robot.jacobian);
+    robot.dq = matrix_multiply(jacoinver, robot.dx);
+    part = endeffector_joint;
+    for(var i = 3; i >= 0; i--){
+        robot.joints[part].control = robot.dq[i][0] * kineval.params.ik_steplength;
+        part = robot.links[robot.joints[part].parent].parent;
+    }
+
 
 }
 

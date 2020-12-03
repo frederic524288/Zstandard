@@ -56,13 +56,21 @@ function matrix_multiply(m1,m2) {
 
 function matrix_transpose(m) {
     // returns 2D array that is the result of m1*m2
-    var mh = JSON.parse(JSON.stringify(m));
-    for(var i = 0; i < m.length; i++){
-        for(var j = 0; j < m[0].length; j++){
-            m[i][j] = mh[j][i];
+    var mh = [];
+    for(var i = 0; i < m[0].length; i++){
+        var temp = [];
+        for(var j = 0; j < m.length; j++){
+            temp.push(0);
+        }
+        mh.push(temp);
+    }
+
+    for(var i = 0; i < mh.length; i++){
+        for(var j = 0; j < mh[0].length; j++){
+            mh[i][j] = m[j][i];
         }
     }
-    return m;
+    return mh;
 }
 
 function matrix_pseudoinverse(m) {
