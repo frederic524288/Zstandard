@@ -1,4 +1,4 @@
-//CI grader generates report at 03-12-2020-06-59-27
+//CI grader generates report at 03-12-2020-13-22-22
 grade = 
 {
   "yuzeren": {
@@ -315,11 +315,11 @@ grade =
         "test results": {
           "Test 2": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: Search time out\n"
+            "Stderr": "Timeout!"
           }, 
           "Test 3": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: Search time out\n"
+            "Stderr": "Timeout!"
           }, 
           "Test 0": {
             "Status": "Failed", 
@@ -327,7 +327,7 @@ grade =
           }, 
           "Test 1": {
             "Status": "Failed", 
-            "Stderr": "[ERROR]: Search time out\n"
+            "Stderr": "Timeout!"
           }
         }, 
         "comments": [
