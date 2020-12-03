@@ -99,7 +99,7 @@ kineval.iterateIK = function iterate_inverse_kinematics(endeffector_target_world
         wi[1] = waxis[1][0] - worigin[1][0];
         wi[2] = waxis[2][0] - worigin[2][0];
 
-        var Jvi = vector_cross(ri,wi);
+        var Jvi = vector_cross(wi,ri);
         robot.jacobian[0][i] = Jvi[0];
         robot.jacobian[1][i] = Jvi[1];
         robot.jacobian[2][i] = Jvi[2];
