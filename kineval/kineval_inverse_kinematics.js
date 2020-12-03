@@ -82,9 +82,9 @@ kineval.iterateIK = function iterate_inverse_kinematics(endeffector_target_world
     var part = endeffector_joint;
     robot.jacobian = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]];
     for(var i = 3; i >= 0; i--){
-        var origin = [[robot.joints[part].origin.xyz[0]], 
-                        [robot.joints[part].origin.xyz[1]],
-                        [robot.joints[part].origin.xyz[2]],[1]];
+        var origin = [[0], 
+                        [0],
+                        [0],[1]];
         var axis = [[robot.joints[part].axis[0]], 
                     [robot.joints[part].axis[1]], 
                     [robot.joints[part].axis[2]], [1]];
