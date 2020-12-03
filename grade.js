@@ -1,4 +1,4 @@
-//CI grader generates report at 03-12-2020-00-59-54
+//CI grader generates report at 03-12-2020-06-59-27
 grade = 
 {
   "yuzeren": {
@@ -211,9 +211,9 @@ grade =
         ]
       }, 
       "FSMDance_BaseControl": {
-        "status": "PENDING", 
+        "status": "PARTIAL", 
         "comments": [
-          "Point: 0/2, cannot find basecontrol implementation or implementation incorrect, we will still give full points if you complete after asgn5 deadline"
+          "Point: 1.6/2, complete after due day check"
         ]
       }, 
       "FSMDance_SetpointControl": {
