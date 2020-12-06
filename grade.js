@@ -1,4 +1,4 @@
-//CI grader generates report at 05-12-2020-13-07-16
+//CI grader generates report at 05-12-2020-19-06-38
 grade = 
 {
   "yuzeren": {
@@ -311,27 +311,27 @@ grade =
         ]
       }, 
       "MotionPlan_2DRRTConnect": {
-        "status": "PENDING", 
+        "status": "PASS", 
         "test results": {
           "Test 2": {
-            "Status": "Failed", 
-            "Stderr": "Timeout!"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 3": {
-            "Status": "Failed", 
-            "Stderr": "Timeout!"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 0": {
-            "Status": "Failed", 
-            "Stderr": "[ERROR]: Search time out\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 1": {
-            "Status": "Failed", 
-            "Stderr": "Timeout!"
+            "Status": "Succeed", 
+            "Stderr": ""
           }
         }, 
         "comments": [
-          "0 out of 4 test cases passed"
+          "4 out of 4 test cases passed"
         ]
       }, 
       "MotionPlan_CSpaceRRTConnect": {
