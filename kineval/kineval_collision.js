@@ -55,8 +55,79 @@ kineval.poseIsCollision = function robot_collision_test(q) {
 
     // traverse robot kinematics to test each body for collision
     // STENCIL: implement forward kinematics for collision detection
-    //return robot_collision_forward_kinematics(q);
+    return robot_collision_forward_kinematics(q);
 
+}
+
+function robot_collision_forward_kinematics(q){
+    xform_list = {};
+    for(var links in robot.links){
+        var obj = {};
+        xform_list[links] = obj;
+    }
+    var visited = [];
+    var translational = generate_translation_matrix(q[0], q[1], q[2]);
+    var xR = generate_rotation_matrix_X(q[3]);
+    var yR = generate_rotation_matrix_Y(q[4]);
+    var zR = generate_rotation_matrix_Z(q[5]);
+    var xform = matrix_multiply(matrix_multiply(matrix_multiply(translational, zR),yR),xR);
+    visited.push("base");
+    xform_list["base"].xform = xform;
+    
+    while(visited.length != q.length - 5){
+        for(var link in robot.links){
+            var temp = link;
+            while(!visited_check(visited, link)){
+                if(visited_check(visited, robot.joints[robot.links[temp].parent].parent)){
+                    var Translational = generate_translation_matrix(
+                        robot.joints[robot.links[temp].parent].origin.xyz[0], 
+                        robot.joints[robot.links[temp].parent].origin.xyz[1], 
+                        robot.joints[robot.links[temp].parent].origin.xyz[2]);
+                    var XR = generate_rotation_matrix_X(robot.joints[robot.links[temp].parent].origin.rpy[0]);
+                    var YR = generate_rotation_matrix_Y(robot.joints[robot.links[temp].parent].origin.rpy[1]);
+                    var ZR = generate_rotation_matrix_Z(robot.joints[robot.links[temp].parent].origin.rpy[2]);
+                    var target_joint = q_names[robot.links[temp].parent];
+                    var cR = kineval.quaternionToRotationMatrix(kineval.quaternionFromAxisAngle(
+                        robot.joints[robot.links[temp].parent].axis, q[target_joint]));
+                    xform_list[temp].xform = matrix_multiply(xform_list[robot.joints[robot.links[temp].parent].parent].xform,
+                        matrix_multiply(matrix_multiply(matrix_multiply(Translational, ZR),YR),XR));
+                    xform_list[temp].xform = matrix_multiply(
+                            xform_list[temp].xform, cR);
+                    visited.push(temp);
+                }           
+                else{
+                    temp = robot.joints[robot.links[temp].parent].parent;   
+                }
+            }
+        }
+    }
+    var coli = false;
+    for(var xf in xform_list){
+        //xform_list[xf].xforminv = numeric.inv(xform_list[xf].xform);
+        var flag = traverse_collision_forward_kinematics_link(robot.links[xf],
+            xform_list[xf].xform,q);
+        if(flag){//have collision
+            coli = flag;
+        }
+    }
+    if(coli != false){
+        return coli;
+    }
+    else{
+        return false;
+    }
+
+
+
+}
+
+function visited_check(visited, link){
+    for(var i = 0; i < visited.length; i++){
+        if(visited[i] == link){
+            return true;
+        }
+    }
+    return false;
 }
 
 
@@ -131,5 +202,7 @@ function traverse_collision_forward_kinematics_link(link,mstack,q) {
     return false;
 }
 
-
+function traverse_collision_forward_kinematics_joint(joint,mstack,q){
+    return traverse_collision_forward_kinematics_link(robot.links[joint.child],xform_list[joint.child].xform,q);
+}
 
