@@ -125,6 +125,8 @@ kineval.robotRRTPlannerInit = function robot_rrt_planner_init() {
 
     // make sure the rrt iterations are not running faster than animation update
     cur_time = Date.now();
+    t_a = tree_init(q_start_config);
+    t_b = tree_init(q_goal_config);
 }
 
 
@@ -151,7 +153,140 @@ function robot_rrt_planner_iterate() {
     //   tree_add_vertex - adds and displays new configuration vertex for a tree
     //   tree_add_edge - adds and displays new tree edge between configurations
     }
+    
+    var q_rand = randomConfig();
+    if(extendRRT(t_a, q_rand) != "Trapped"){
+        if(connectRRT(t_b, t_a.vertices[t_a.newest].vertex) == "reached"){
+            kineval.motion_plan = Path();
+            for(var j = 0; j < kineval.motion_plan.length; j++){
+                kineval.motion_plan[j].geom.material.color = {r:1,g:0,b:0};
+            }
+            //search_iterate = false;
+            return "reached";
+        }
+    }
+    var temp = t_a;
+    t_a = t_b;
+    t_b = temp;
+    return "extended";
+    
+}
 
+function randomConfig(){
+    var q_rand = [];
+    q_rand.push(Math.random()*(robot_boundary[1][0] - robot_boundary[0][0]) + robot_boundary[0][0]);
+    q_rand.push(0);
+    q_rand.push(Math.random()*(robot_boundary[1][2] - robot_boundary[0][2]) + robot_boundary[0][2]);
+    q_rand.push(0);
+    q_rand.push(Math.random()*Math.PI * 2 - Math.PI);
+    q_rand.push(0);
+    var i = q_rand.length;
+    while(q_rand.length < t_a.vertices[0].vertex.length){
+        q_rand.push(Math.random()*Math.PI * 2 - Math.PI);
+    }
+
+    return q_rand;
+}
+
+function extendRRT(tree, q){
+    var q_near = findNearestNeighbor(q, tree);// index
+    var norm = Math.sqrt((tree.vertices[q_near].vertex[0] - q[0]) * (tree.vertices[q_near].vertex[0] - q[0]) +
+        (tree.vertices[q_near].vertex[2] - q[2]) * (tree.vertices[q_near].vertex[2] - q[2]));
+    var q_new = [(q[0] - tree.vertices[q_near].vertex[0])/norm + tree.vertices[q_near].vertex[0], 0,
+    (q[2] - tree.vertices[q_near].vertex[2])/norm + tree.vertices[q_near].vertex[2]]//[,]
+    for(var i = q_new.length; i < q.length; i++){
+        q_new[i] = q[i];
+    }
+
+
+    if(newConfig(q_new) == "not"){
+        tree_add_vertex(tree, q_new);
+        tree_add_edge(tree,q_near,tree.newest);
+        if(Math.sqrt((q[0]-q_new[0]) * (q[0]-q_new[0]) + (q[2]-q_new[2]) * (q[2]-q_new[2])) <= 1){
+            return "reached";
+        }
+        else{
+            return "advanced";
+        }
+    }
+    return "Trapped";
+}
+
+function findNearestNeighbor(q, tree){
+    var min_vertex = 0;
+    var min_dist = 200000000;
+    for(var i = 0; i < tree.vertices.length; i++){
+        var dist = Math.sqrt((tree.vertices[i].vertex[0] - q[0]) * (tree.vertices[i].vertex[0] - q[0]) +
+        (tree.vertices[i].vertex[2] - q[2]) * (tree.vertices[i].vertex[2] - q[2]));
+        if(dist < min_dist){
+            min_dist = dist;
+            min_vertex = i;
+        }
+    }
+
+    return min_vertex;
+}
+
+function newConfig(q_new){
+    if(kineval.poseIsCollision(q_new) != false){
+        return "Trapped";
+    }
+    else{
+        return "not";
+    }
+}
+
+function connectRRT(tree, q_new){
+    var S = "advanced";
+    while(S == "advanced"){
+        S = extendRRT(tree, q_new);
+    }
+    return S;
+}
+
+function Path(){
+    var T_a_path = [];
+    var T_a_touched = [t_a.vertices[0]];
+    T_a_path = dfsPath(t_a, t_a.vertices[t_a.newest], t_a.vertices[0], T_a_touched);
+    var T_b_path = [];
+    var T_b_touched = [t_b.vertices[0]];
+    T_b_path = dfsPath(t_b, t_b.vertices[t_b.newest], t_b.vertices[0], T_b_touched);
+    for(var i = T_b_path.length - 1; i >= 0; i--){
+        T_a_path.push(T_b_path[i]);
+    }
+    return T_a_path;
+}
+
+function dfsPath(tree, q_goal, q_start, stack){
+    var q = stack[0];
+    var visited = [];
+    while(q != q_goal){
+        visited.push(q);
+        stack.pop();
+        for(var i = 0; i < q.edges.length; i ++){
+            var exist = false;
+            for(var j = 0; j < visited.length; j ++){
+                if(q.edges[i] == visited[j]){
+                    exist = true;
+                }
+            }
+            if(exist == false){
+                stack.push(q.edges[i]);
+                q.edges[i].parent = q;
+            }
+        }
+        q = stack[stack.length - 1];
+    }
+    var q = q_goal;
+    var path = [];
+    while(q != q_start){
+        path.unshift(q);
+        q = q.parent
+    }
+    path.unshift(q_start);
+    return path;
+ 
+    
 }
 
 //////////////////////////////////////////////////
