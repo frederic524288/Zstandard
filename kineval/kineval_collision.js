@@ -101,11 +101,27 @@ function robot_collision_forward_kinematics(q){
             }
         }
     }
+
     var coli = false;
-    for(var xf in xform_list){
+    var check_order = [];
+    check_order.push("base");
+    var temp_stack = ["base"];
+    while(temp_stack.length != 0){
+        var cur_link = temp_stack[0];
+        temp_stack.shift();
+        if(robot.links[cur_link].children){
+            for(var i = 0; i < robot.links[cur_link].children.length; i++){
+                temp_stack.push(robot.joints[robot.links[cur_link].children[i]].child);
+                check_order.push(robot.joints[robot.links[cur_link].children[i]].child);
+            }
+        }
+    }
+
+
+    for(var i = 0; i < check_order.length; i++){
         //xform_list[xf].xforminv = numeric.inv(xform_list[xf].xform);
-        var flag = traverse_collision_forward_kinematics_link(robot.links[xf],
-            xform_list[xf].xform,q);
+        var flag = traverse_collision_forward_kinematics_link(robot.links[check_order[i]],
+            xform_list[check_order[i]].xform,q);
         if(flag){//have collision
             coli = flag;
         }
@@ -116,10 +132,9 @@ function robot_collision_forward_kinematics(q){
     else{
         return false;
     }
-
-
-
 }
+
+
 
 function visited_check(visited, link){
     for(var i = 0; i < visited.length; i++){
