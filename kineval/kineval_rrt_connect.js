@@ -190,14 +190,15 @@ function randomConfig(){
 
 function extendRRT(tree, q){
     var q_near = findNearestNeighbor(q, tree);// index
-    var norm = Math.sqrt((tree.vertices[q_near].vertex[0] - q[0]) * (tree.vertices[q_near].vertex[0] - q[0]) +
-        (tree.vertices[q_near].vertex[2] - q[2]) * (tree.vertices[q_near].vertex[2] - q[2]));
-    var q_new = [(q[0] - tree.vertices[q_near].vertex[0])/norm + tree.vertices[q_near].vertex[0], 0,
-    (q[2] - tree.vertices[q_near].vertex[2])/norm + tree.vertices[q_near].vertex[2]]//[,]
+    var q_new = [(q[0] - tree.vertices[q_near].vertex[0]), 0,
+    (q[2] - tree.vertices[q_near].vertex[2])]//[,]
     for(var i = q_new.length; i < q.length; i++){
-        q_new[i] = q[i];
+        q_new[i] = q[i] - tree.vertices[q_near].vertex[i];
     }
-
+    q_new = normalize_joint_state(q_new);
+    for(var i = 0; i < q_new.length; i++){
+        q_new[i] = q_new[i] + tree.vertices[q_near].vertex[i];
+    }
 
     if(newConfig(q_new) == "not"){
         tree_add_vertex(tree, q_new);
@@ -210,6 +211,18 @@ function extendRRT(tree, q){
         }
     }
     return "Trapped";
+}
+
+function normalize_joint_state(q){
+    var norm = 0;
+    for(var i = 0; i < q.length; i++){
+        norm += q[i] * q[i];
+    }
+    norm = Math.sqrt(norm);
+    for(var i = 0; i < q.length; i++){
+        q[i] = q[i]/norm;
+    }
+    return q;
 }
 
 function findNearestNeighbor(q, tree){
