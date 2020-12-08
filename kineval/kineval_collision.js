@@ -122,16 +122,11 @@ function robot_collision_forward_kinematics(q){
         //xform_list[xf].xforminv = numeric.inv(xform_list[xf].xform);
         var flag = traverse_collision_forward_kinematics_link(robot.links[check_order[i]],
             xform_list[check_order[i]].xform,q);
-        if(flag){//have collision
-            coli = flag;
+        if(flag != false){//have collision
+            return flag;
         }
     }
-    if(coli != false){
-        return coli;
-    }
-    else{
-        return false;
-    }
+    return false;
 }
 
 
@@ -207,7 +202,8 @@ function traverse_collision_forward_kinematics_link(link,mstack,q) {
         var local_collision;
         //for (i=0;i<link.children.length;i++) {
         for (i in link.children) {
-            local_collision = traverse_collision_forward_kinematics_joint(robot.joints[link.children[i]],mstack,q)
+            local_collision = traverse_collision_forward_kinematics_joint(
+                robot.joints[link.children[i]],mstack,q)
             if (local_collision)
                 return local_collision;
         }
@@ -218,6 +214,7 @@ function traverse_collision_forward_kinematics_link(link,mstack,q) {
 }
 
 function traverse_collision_forward_kinematics_joint(joint,mstack,q){
-    return traverse_collision_forward_kinematics_link(robot.links[joint.child],xform_list[joint.child].xform,q);
+    return traverse_collision_forward_kinematics_link(robot.links[joint.child],
+        xform_list[joint.child].xform,q);
 }
 
