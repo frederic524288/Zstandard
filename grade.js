@@ -1,4 +1,4 @@
-//CI grader generates report at 08-12-2020-18-35-18
+//CI grader generates report at 09-12-2020-00-32-08
 grade = 
 {
   "yuzeren": {
@@ -291,23 +291,23 @@ grade =
         ]
       }, 
       "MotionPlan_Collision": {
-        "status": "PENDING", 
+        "status": "PASS", 
         "test results": {
           "Test 2": {
-            "Status": "Failed", 
-            "Stderr": "[ERROR]: Collision test 2 failed\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }, 
           "Test 0": {
             "Status": "Succeed", 
             "Stderr": ""
           }, 
           "Test 1": {
-            "Status": "Failed", 
-            "Stderr": "[ERROR]: Collision test 1 failed\n"
+            "Status": "Succeed", 
+            "Stderr": ""
           }
         }, 
         "comments": [
-          "1 out of 3 test cases passed"
+          "3 out of 3 test cases passed"
         ]
       }, 
       "MotionPlan_2DRRTConnect": {
