@@ -1,4 +1,4 @@
-//CI grader generates report at 09-12-2020-00-32-08
+//CI grader generates report at 15-12-2020-20-44-23
 grade = 
 {
   "yuzeren": {
@@ -291,7 +291,7 @@ grade =
         ]
       }, 
       "MotionPlan_Collision": {
-        "status": "PASS", 
+        "status": "CHECK", 
         "test results": {
           "Test 2": {
             "Status": "Succeed", 
@@ -307,11 +307,11 @@ grade =
           }
         }, 
         "comments": [
-          "3 out of 3 test cases passed"
+          "Point: 4/4, due day check pass, good work!"
         ]
       }, 
       "MotionPlan_2DRRTConnect": {
-        "status": "PASS", 
+        "status": "CHECK", 
         "test results": {
           "Test 2": {
             "Status": "Succeed", 
@@ -331,13 +331,13 @@ grade =
           }
         }, 
         "comments": [
-          "4 out of 4 test cases passed"
+          "Point: 6/6, due day check pass, good work!"
         ]
       }, 
       "MotionPlan_CSpaceRRTConnect": {
-        "status": "PENDING", 
+        "status": "CHECK", 
         "comments": [
-          ""
+          "Point: 2/2, due day check pass, good work!"
         ]
       }, 
       "Pitch": {
@@ -365,8 +365,8 @@ grade =
       }
     ], 
     "participation": {
-      "status": 2.5, 
-      "comments": "Pod submitted name and logo, Extra+1.5 Most Pod Spirit Challenge\nPod submitted dance off video "
+      "status": 5.5, 
+      "comments": "Pod submitted name and logo, Extra+1.5 Most Pod Spirit Challenge\nPod submitted dance off video \n3 additional participation points earned"
     }
   }
 }
